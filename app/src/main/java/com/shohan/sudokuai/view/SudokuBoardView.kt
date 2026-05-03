@@ -27,6 +27,10 @@ class SudokuBoardView @JvmOverloads constructor(
     var selectedCol = -1
         private set
     var selectedNumber = 0
+        set(value) {
+            field = value
+            invalidate()
+        }
 
     // Theme
     private var isDark = false
@@ -230,10 +234,6 @@ class SudokuBoardView @JvmOverloads constructor(
         invalidate()
     }
 
-    fun setSelectedNumber(num: Int) {
-        selectedNumber = num
-        invalidate()
-    }
 
     fun clearSelection() {
         selectedRow = -1
