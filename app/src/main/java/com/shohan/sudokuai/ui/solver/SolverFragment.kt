@@ -81,7 +81,7 @@ class SolverFragment : Fragment() {
         val accent = if (isDark) Color.parseColor("#5C6BC0") else Color.parseColor("#1565C0")
         tv.setBackgroundColor(accent)
         tv.setTextColor(Color.WHITE)
-        binding.sudokuBoard.setSelectedNumber(num)
+        binding.sudokuBoard.selectedNumber = num
     }
 
     private fun deselectAll() {
@@ -105,7 +105,7 @@ class SolverFragment : Fragment() {
         binding.btnClearBoard.setOnClickListener {
             viewModel.clearBoard()
             deselectAll()
-            binding.sudokuBoard.setSelectedNumber(0)
+            binding.sudokuBoard.selectedNumber = 0
             binding.sudokuBoard.clearSelection()
         }
     }
@@ -121,7 +121,7 @@ class SolverFragment : Fragment() {
         }
 
         viewModel.selectedNumber.observe(viewLifecycleOwner) { num ->
-            binding.sudokuBoard.setSelectedNumber(num)
+            binding.sudokuBoard.selectedNumber = num
             if (num == 0) deselectAll()
         }
 

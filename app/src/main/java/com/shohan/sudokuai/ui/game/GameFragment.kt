@@ -112,7 +112,7 @@ class GameFragment : Fragment() {
         val accent = if (isDark) Color.parseColor("#5C6BC0") else Color.parseColor("#1565C0")
         tv.setBackgroundColor(accent)
         tv.setTextColor(Color.WHITE)
-        binding.sudokuBoard.setSelectedNumber(num)
+        binding.sudokuBoard.selectedNumber = num
     }
 
     private fun deselectAll() {
@@ -141,7 +141,7 @@ class GameFragment : Fragment() {
         binding.btnRestart.setOnClickListener {
             viewModel.restartPuzzle()
             deselectAll()
-            binding.sudokuBoard.setSelectedNumber(0)
+            binding.sudokuBoard.selectedNumber = 0
             Snackbar.make(binding.root, "Puzzle restarted", Snackbar.LENGTH_SHORT).show()
         }
 
@@ -173,7 +173,7 @@ class GameFragment : Fragment() {
         }
 
         viewModel.selectedNumber.observe(viewLifecycleOwner) { num ->
-            binding.sudokuBoard.setSelectedNumber(num)
+            binding.sudokuBoard.selectedNumber = num
             if (num == 0) deselectAll()
         }
 
