@@ -1,0 +1,52 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="96dp"
+    android:height="96dp"
+    android:viewportWidth="96"
+    android:viewportHeight="96">
+
+    <!-- Background circle -->
+    <path
+        android:fillColor="#1565C0"
+        android:pathData="M48,48m-46,0a46,46 0,1 1,92 0a46,46 0,1 1,-92 0" />
+
+    <!-- 3x3 Sudoku grid (white lines) -->
+    <!-- Outer border -->
+    <path
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="2.8"
+        android:fillColor="#00000000"
+        android:pathData="M22,22 L74,22 L74,74 L22,74 Z" />
+
+    <!-- Inner grid lines (thinner) -->
+    <!-- Vertical lines -->
+    <path android:strokeColor="#FFFFFF" android:strokeWidth="1.2" android:pathData="M39.3,22 L39.3,74" />
+    <path android:strokeColor="#FFFFFF" android:strokeWidth="1.2" android:pathData="M56.7,22 L56.7,74" />
+    <!-- Horizontal lines -->
+    <path android:strokeColor="#FFFFFF" android:strokeWidth="1.2" android:pathData="M22,39.3 L74,39.3" />
+    <path android:strokeColor="#FFFFFF" android:strokeWidth="1.2" android:pathData="M22,56.7 L74,56.7" />
+
+    <!-- Filled cells (showing a mini sudoku pattern) -->
+    <!-- Top-left cell -->
+    <path android:fillColor="#FFFFFF" android:pathData="M25,25 L37,25 L37,37 L25,37 Z" android:fillAlpha="0.9"/>
+    <!-- Center cell -->
+    <path android:fillColor="#FFFFFF" android:pathData="M42,42 L54,42 L54,54 L42,54 Z" android:fillAlpha="0.9"/>
+    <!-- Bottom-right cell -->
+    <path android:fillColor="#FFFFFF" android:pathData="M59,59 L71,59 L71,71 L59,71 Z" android:fillAlpha="0.9"/>
+    <!-- Top-right cell -->
+    <path android:fillColor="#90CAF9" android:pathData="M59,25 L71,25 L71,37 L59,37 Z" android:fillAlpha="0.7"/>
+    <!-- Bottom-left cell -->
+    <path android:fillColor="#90CAF9" android:pathData="M25,59 L37,59 L37,71 L25,71 Z" android:fillAlpha="0.7"/>
+
+    <!-- AI brain nodes (circuit dots connecting corners) -->
+    <path android:fillColor="#FFD54F" android:pathData="M48,48m-3.5,0a3.5,3.5 0,1 1,7 0a3.5,3.5 0,1 1,-7 0" />
+    <path android:strokeColor="#FFD54F" android:strokeWidth="1.5" android:pathData="M48,44.5 L48,30" android:fillColor="#00000000"/>
+    <path android:strokeColor="#FFD54F" android:strokeWidth="1.5" android:pathData="M48,51.5 L48,66" android:fillColor="#00000000"/>
+    <path android:strokeColor="#FFD54F" android:strokeWidth="1.5" android:pathData="M44.5,48 L30,48" android:fillColor="#00000000"/>
+    <path android:strokeColor="#FFD54F" android:strokeWidth="1.5" android:pathData="M51.5,48 L66,48" android:fillColor="#00000000"/>
+
+    <!-- Node dots at wire ends -->
+    <path android:fillColor="#FFD54F" android:pathData="M48,28m-2.2,0a2.2,2.2 0,1 1,4.4 0a2.2,2.2 0,1 1,-4.4 0"/>
+    <path android:fillColor="#FFD54F" android:pathData="M48,68m-2.2,0a2.2,2.2 0,1 1,4.4 0a2.2,2.2 0,1 1,-4.4 0"/>
+    <path android:fillColor="#FFD54F" android:pathData="M30,48m-2.2,0a2.2,2.2 0,1 1,4.4 0a2.2,2.2 0,1 1,-4.4 0"/>
+    <path android:fillColor="#FFD54F" android:pathData="M66,48m-2.2,0a2.2,2.2 0,1 1,4.4 0a2.2,2.2 0,1 1,-4.4 0"/>
+</vector>

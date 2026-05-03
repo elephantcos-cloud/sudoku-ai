@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">SudokuAI</string>
+    <string name="easy">Easy</string>
+    <string name="medium">Medium</string>
+    <string name="hard">Hard</string>
+    <string name="expert">Expert</string>
+    <string name="ai_solver">AI Solver</string>
+    <string name="puzzle_library">Puzzle Library</string>
+    <string name="hint">Hint</string>
+    <string name="solve">Solve</string>
+    <string name="undo">Undo</string>
+    <string name="erase">Erase</string>
+    <string name="check">Check</string>
+    <string name="restart">Restart</string>
+</resources>

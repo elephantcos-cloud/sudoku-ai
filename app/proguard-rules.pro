@@ -1,0 +1,3 @@
+-keep class com.shohan.sudokuai.** { *; }
+-keepattributes *Annotation*
+-keepattributes SourceFile,LineNumberTable

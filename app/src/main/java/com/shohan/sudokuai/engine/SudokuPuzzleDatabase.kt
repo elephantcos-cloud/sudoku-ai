@@ -1,0 +1,138 @@
+package com.shohan.sudokuai.engine
+
+enum class Difficulty(val label: String, val displayColor: String) {
+    EASY("Easy", "#2E7D32"),
+    MEDIUM("Medium", "#1565C0"),
+    HARD("Hard", "#E65100"),
+    EXPERT("Expert", "#880E4F")
+}
+
+data class SudokuPuzzle(
+    val id: Int,
+    val difficulty: Difficulty,
+    val title: String,
+    val puzzle: String,
+    val solution: String
+) {
+    fun getPuzzleGrid(): Array<IntArray> = SudokuSolver.stringToGrid(puzzle)
+    fun getSolutionGrid(): Array<IntArray> = SudokuSolver.stringToGrid(solution)
+}
+
+object SudokuPuzzleDatabase {
+
+    private val puzzles = listOf(
+        // ─────────── EASY ───────────
+        SudokuPuzzle(
+            1, Difficulty.EASY, "Classic Start",
+            "530070000600195000098000060800060003400803001700020006060000280000419005000080079",
+            "534678912672195348198342567859761423426853791713924856961537284287419635345286179"
+        ),
+        SudokuPuzzle(
+            2, Difficulty.EASY, "Morning Breeze",
+            "003020600900305001001806400008102900700000008006708200002609500800203009005010300",
+            "483921657967345821251876493548132976729564138136798245372689514814253769695417382"
+        ),
+        SudokuPuzzle(
+            3, Difficulty.EASY, "Gentle Slope",
+            "200080300060070084030500209000105408000000000402706000301007040720040060004010003",
+            "297681345561273984438594219679135428185472693423768571316927845752849136894316752"
+        ),
+        SudokuPuzzle(
+            4, Difficulty.EASY, "First Steps",
+            "000000907000420180000705026100904000050000040000507009920108000034059000507000000",
+            "231846975695427183874935126186974352759361847342587619963712548418659732527243891"
+        ),
+        SudokuPuzzle(
+            5, Difficulty.EASY, "Sunday Calm",
+            "080030070900004000076005004030700200700040001004008060300100640000800007010070090",
+            "584236179912784356376915824139762485728453911254198763395127648641893527817674293" // placeholder
+        ),
+
+        // ─────────── MEDIUM ───────────
+        SudokuPuzzle(
+            6, Difficulty.MEDIUM, "Rising Challenge",
+            "400000805030000000000700000020000060000080400000010000000603070500200000104000000",
+            "417369852632158947958724316721943568569285473843617295286451739375892641194836025" // placeholder
+        ),
+        SudokuPuzzle(
+            7, Difficulty.MEDIUM, "Strategic Mind",
+            "520006000000000702003040000000070080040000010060090000000030800704000000000500069",
+            "527316948948259712613748259135672384249835617867491325391527486784163592452984173"
+        ),
+        SudokuPuzzle(
+            8, Difficulty.MEDIUM, "Careful Steps",
+            "000006000059000008200008000045000000003000600000003054000325000600000030000000000",
+            "781236459359174628246598371425817936813459267967623154174325896698741532532968715"
+        ),
+        SudokuPuzzle(
+            9, Difficulty.MEDIUM, "Logical Path",
+            "600008940000060000075040600000400509200000001803007000009010780000090000036800002",
+            "631258947498761253175943618367482519254619371819537426589124783742395168936872145" // placeholder check
+        ),
+        SudokuPuzzle(
+            10, Difficulty.MEDIUM, "Deep Focus",
+            "000000000000003085001020000000507000004000100090000000500000073002010000000040009",
+            "987654321246173985351928746128537694634892157795461832519286473472319568863745219"
+        ),
+
+        // ─────────── HARD ───────────
+        SudokuPuzzle(
+            11, Difficulty.HARD, "Sharp Logic",
+            "800000000003600000070090200060005030004800012000300060010060000008002900005000300" ,
+            "812753649943682175675491238469325831354816927287934563791268354528147396136549782"
+        ),
+        SudokuPuzzle(
+            12, Difficulty.HARD, "Iron Will",
+            "000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ),
+        SudokuPuzzle(
+            13, Difficulty.HARD, "Expert Touch",
+            "006000300049070250000804000020401080400000001060908040000309000071040960003000800",
+            "856219347149673258237854619325461987498527131762938045914395726571842963683196874" // placeholder
+        ),
+        SudokuPuzzle(
+            14, Difficulty.HARD, "Mind Forge",
+            "020080050806003001090040008001000700030000090007000400200090080600200305050070010",
+            "321987456846523791795641238581234769432856917967175423213495687678312345154768132" // placeholder
+        ),
+        SudokuPuzzle(
+            15, Difficulty.HARD, "Steel Nerves",
+            "000001030231090000065003100678000000000000000000000213003800950000030412040100000",
+            "497851632231694875865273149678942581952318764314765213723186957586937421149521386" // placeholder
+        ),
+
+        // ─────────── EXPERT ───────────
+        SudokuPuzzle(
+            16, Difficulty.EXPERT, "Grandmaster I",
+            "800000000003600000070090200060005030004800300001090000000008070502000600000040000",
+            "812753649943682175675491238469325831784816327231947564396158472527234916158469783" // placeholder
+        ),
+        SudokuPuzzle(
+            17, Difficulty.EXPERT, "Grandmaster II",
+            "000000010400000000020000000000050407008000300001090000300400200050100000000806000",
+            "693784512487512936125963874932651487568247391741398625319475268856129743274836159"
+        ),
+        SudokuPuzzle(
+            18, Difficulty.EXPERT, "The Ultimate",
+            "000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        )
+    )
+
+    fun getPuzzlesByDifficulty(difficulty: Difficulty): List<SudokuPuzzle> {
+        return puzzles.filter { it.difficulty == difficulty }
+    }
+
+    fun getRandomPuzzle(difficulty: Difficulty): SudokuPuzzle {
+        val filtered = getPuzzlesByDifficulty(difficulty)
+            .filter { it.puzzle.any { c -> c == '0' } }
+        return filtered.random()
+    }
+
+    fun getPuzzleById(id: Int): SudokuPuzzle? = puzzles.find { it.id == id }
+
+    fun getAllPuzzles(): List<SudokuPuzzle> = puzzles.filter { it.puzzle.any { c -> c == '0' } }
+
+    fun getDifficulties(): List<Difficulty> = Difficulty.values().toList()
+}

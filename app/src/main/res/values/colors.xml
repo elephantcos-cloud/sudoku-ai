@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Light Theme Colors -->
+    <color name="light_background">#FFFFFF</color>
+    <color name="light_surface">#F4F4F4</color>
+    <color name="light_on_background">#111111</color>
+    <color name="light_on_surface">#333333</color>
+    <color name="light_primary">#1565C0</color>
+    <color name="light_outline">#AAAAAA</color>
+
+    <!-- Dark Theme Colors -->
+    <color name="dark_background">#000000</color>
+    <color name="dark_surface">#0F0F0F</color>
+    <color name="dark_on_background">#FFFFFF</color>
+    <color name="dark_on_surface">#DDDDDD</color>
+    <color name="dark_primary">#5C6BC0</color>
+    <color name="dark_outline">#444444</color>
+
+    <!-- Shared -->
+    <color name="error_red">#C62828</color>
+    <color name="success_green">#2E7D32</color>
+    <color name="accent_blue">#1565C0</color>
+</resources>
